@@ -31,4 +31,4 @@ jobs:
           python -m pytest -q --cov=prediction_pipeline_demo --cov-report=term-missing --cov-fail-under=50
       
       # TODO: Add a step here to run the demo pipeline end-to-end
-      # The goal is to execute prediction_demo.py so CI logs show the model’s R^2 score.
+      # The goal is to execute prediction_pipeline_demo.py so CI logs show the model’s R^2 score.
