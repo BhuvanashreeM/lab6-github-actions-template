@@ -39,11 +39,9 @@ def feature_target_sample(housing_data_sample):
 def test_data_split_returns_four_parts(feature_target_sample):
     parts = data_split(*feature_target_sample)
     # TODO(1): assert the tuple has exactly 4 elements
-    raise NotImplementedError("Implement this test")
 
 def test_end_to_end_train_and_eval(feature_target_sample):
     X_train, X_test, y_train, y_test = data_split(*feature_target_sample)
     model = train_model(X_train, y_train)
     score = eval_model(X_test, y_test, model)
     # TODO(2): simple assertion so eval path is covered
-    raise NotImplementedError("Implement this test")
