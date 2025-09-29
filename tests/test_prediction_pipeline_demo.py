@@ -1,7 +1,7 @@
 import pytest
 import pandas as pd
 import numpy as np
-from prediction_demo import data_preparation, data_split, train_model, eval_model
+from prediction_pipeline_demo import data_preparation, data_split, train_model, eval_model
 
 @pytest.fixture
 def housing_data_sample():
