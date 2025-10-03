@@ -8,16 +8,18 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+      # - name: Set up Python
+      #   uses: actions/setup-python@v5
+      #   with:
+      
+      - name: Show Python
+        run: python3 --version
 
       - name: Install dependencies
         run: |
@@ -28,7 +30,12 @@ jobs:
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
-          python -m pytest -q --cov=prediction_pipeline_demo --cov-report=term-missing --cov-fail-under=50
-      
+          python -m pytest -q --cov=prediction_pipeline_demo --cov-report=term-missing --cov-fail-under=70
+
+      - name: Run prediction pipeline demo (end-to-end test)
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python prediction_pipeline_demo.py
       # TODO: Add a step here to run the demo pipeline end-to-end
       # The goal is to execute prediction_pipeline_demo.py so CI logs show the model’s R^2 score.
