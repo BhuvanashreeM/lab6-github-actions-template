@@ -56,20 +56,26 @@ def feature_target_sample(housing_data_sample):
 
 def test_data_split_returns_four_parts(feature_target_sample):
     # TODO(1): Uncomment the line below to get the split
-    # parts = data_split(*feature_target_sample)
+    parts = data_split(*feature_target_sample)
     # TODO(2): Add assertions to check:
     #   - parts is a tuple
+    assert isinstance(parts, tuple), "data_split should return a tuple"
     #   - tuple has exactly 4 elements
+    assert len(parts) == 4, "data_split should return exactly 4 parts (X_train, X_test, y_train, y_test)"
     pass
 
 
 def test_end_to_end_train_and_eval(feature_target_sample):
     # TODO(3): Uncomment these lines to train and evaluate the model
-    # X_train, X_test, y_train, y_test = data_split(*feature_target_sample)
-    # model = train_model(X_train, y_train)
-    # score = eval_model(X_test, y_test, model)
+    X_train, X_test, y_train, y_test = data_split(*feature_target_sample)
+    model = train_model(X_train, y_train)
+    score = eval_model(X_test, y_test, model)
     # TODO(4): Add assertions to check:
     #   - score is a float
+    assert isinstance(score, float), "Evaluation score should be a float"
     #   - score is finite (not NaN or inf)
+    assert np.isfinite(score), "Evaluation score should be a finite number"
+    #   - score is between 0 and 1
+    # assert 0.0 <= score <= 1.0, "Evaluation score should be between 0 and 1"
     pass
     
